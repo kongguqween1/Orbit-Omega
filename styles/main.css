@@ -1030,14 +1030,41 @@ body:not(.loading) .hero__title .line > span {
   margin-left: auto;
 }
 @media (max-width: 720px) { .foot__quote { text-align: left; } }
-.foot__source {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+/* Fixed bottom-left source chip — mirrors .audio (bottom-right) */
+.source-chip {
+  position: fixed;
+  left: 22px; bottom: 22px;
+  z-index: 80;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 16px 12px 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-2);
+  background: rgba(8,10,28,0.7);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  font-family: var(--hud-mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-1);
+  text-decoration: none;
+  transition: border-color var(--t-1) var(--ease-out), color var(--t-1) var(--ease-out), background var(--t-1) var(--ease-out), transform var(--t-1) var(--ease-out);
 }
-.foot__source svg {
-  width: 11px; height: 11px;
+.source-chip:hover {
+  border-color: rgba(139,110,232,0.45);
+  color: var(--ink-0);
+  background: rgba(8,10,28,0.85);
+  transform: translateY(-1px);
+}
+.source-chip__icon {
+  width: 14px; height: 14px;
   flex-shrink: 0;
+  color: currentColor;
+}
+.source-chip__label { line-height: 1; }
+@media (max-width: 540px) {
+  .source-chip { padding: 10px 12px; font-size: 10px; }
+  .source-chip__icon { width: 13px; height: 13px; }
 }
 
 .foot__bottom {
