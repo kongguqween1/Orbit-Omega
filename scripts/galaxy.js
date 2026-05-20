@@ -569,14 +569,47 @@ class Galaxy {
   }
 }
 
+// ---------- WebGL availability detection ----------
+function detectWebGL() {
+  try {
+    const c = document.createElement("canvas");
+    const gl = c.getContext("webgl2") || c.getContext("webgl") || c.getContext("experimental-webgl");
+    return !!(window.WebGLRenderingContext && gl);
+  } catch (e) {
+    return false;
+  }
+}
+
+function showFallback(reason) {
+  const fb = document.getElementById("webglFallback");
+  if (fb) fb.hidden = false;
+  document.body.classList.remove("loading");
+  document.dispatchEvent(new CustomEvent("orbit:ready"));
+  if (reason && console && console.warn) console.warn("[orbit] galaxy disabled:", reason);
+}
+
 // Initialise after DOM is ready
 const canvas = document.getElementById("stage");
-if (canvas) {
+if (!canvas) {
+  showFallback("canvas missing");
+} else if (!detectWebGL()) {
+  showFallback("webgl unsupported");
+} else {
   // Defer until next tick so layout is resolved
   requestAnimationFrame(() => {
-    const galaxy = new Galaxy(canvas);
-    // Expose globally for app.js to call boost on key UX events
-    window.__orbit = { galaxy };
-    document.dispatchEvent(new CustomEvent("orbit:ready"));
+    try {
+      const galaxy = new Galaxy(canvas);
+      // Expose globally for app.js to call boost on key UX events
+      window.__orbit = { galaxy };
+      document.dispatchEvent(new CustomEvent("orbit:ready"));
+    } catch (err) {
+      showFallback(err && err.message ? err.message : "init error");
+    }
+  });
+
+  // Also catch async WebGL context loss
+  canvas.addEventListener("webglcontextlost", (e) => {
+    e.preventDefault();
+    showFallback("context lost");
   });
 }

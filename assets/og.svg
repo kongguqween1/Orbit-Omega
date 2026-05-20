@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#0a0d24"/>
+      <stop offset="60%" stop-color="#040614"/>
+      <stop offset="100%" stop-color="#01020a"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4b96f" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#8b6ee8" stop-opacity="0.55"/>
+      <stop offset="75%" stop-color="#4fc3d4" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1a1f4a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grad-text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b6ee8"/>
+      <stop offset="55%" stop-color="#4fc3d4"/>
+      <stop offset="100%" stop-color="#c987d4"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/>
+      <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.06 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Galaxy core glow (right) -->
+  <g transform="translate(900,330)">
+    <circle r="320" fill="url(#core)" filter="url(#soft)"/>
+    <!-- Spiral arms hint -->
+    <g opacity="0.45" stroke="#8b6ee8" stroke-width="0.6" fill="none">
+      <path d="M0 0 C 80 -40 160 -20 220 60 S 280 220 220 280"/>
+      <path d="M0 0 C -80 40 -160 20 -220 -60 S -280 -220 -220 -280"/>
+      <path d="M0 0 C 40 80 20 160 -60 220 S -220 280 -280 220"/>
+      <path d="M0 0 C -40 -80 -20 -160 60 -220 S 220 -280 280 -220"/>
+    </g>
+  </g>
+
+  <!-- Star field sprinkles -->
+  <g fill="#d6d3e8" opacity="0.85">
+    <circle cx="120" cy="80" r="1.2"/>
+    <circle cx="240" cy="160" r="0.8"/>
+    <circle cx="80" cy="220" r="1.6"/>
+    <circle cx="180" cy="310" r="1"/>
+    <circle cx="300" cy="420" r="1.4"/>
+    <circle cx="120" cy="520" r="1.1"/>
+    <circle cx="60" cy="380" r="0.7"/>
+    <circle cx="220" cy="540" r="1.2"/>
+    <circle cx="540" cy="540" r="1"/>
+    <circle cx="640" cy="120" r="1.2"/>
+    <circle cx="780" cy="60" r="0.8"/>
+    <circle cx="1140" cy="160" r="1.4"/>
+    <circle cx="1080" cy="540" r="1.2"/>
+    <circle cx="700" cy="500" r="0.9"/>
+    <circle cx="480" cy="80" r="1.1"/>
+    <circle cx="380" cy="200" r="0.8"/>
+    <circle cx="980" cy="100" r="1.6"/>
+    <circle cx="1160" cy="380" r="1"/>
+  </g>
+
+  <!-- Subtle grid lines -->
+  <g stroke="#1a1f4a" stroke-width="0.4" opacity="0.4">
+    <line x1="60" y1="555" x2="540" y2="555"/>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="60" y="120"
+        font-family="'JetBrains Mono', 'Courier New', monospace"
+        font-size="20"
+        letter-spacing="8"
+        fill="#6a6783"
+        text-transform="uppercase">A 30·DAY GENESIS</text>
+
+  <!-- Brand mark -->
+  <g transform="translate(60,150)">
+    <circle cx="14" cy="14" r="13" fill="none" stroke="#6a6783" stroke-width="1"/>
+    <circle cx="14" cy="14" r="3.5" fill="#8b6ee8"/>
+    <circle cx="27" cy="14" r="1.6" fill="#ece9f5"/>
+    <text x="42" y="22"
+          font-family="'Fraunces', Georgia, serif"
+          font-size="24"
+          font-weight="500"
+          fill="#ece9f5"
+          letter-spacing="2">ORBIT Ω</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="60" y="290"
+        font-family="'Fraunces', Georgia, serif"
+        font-size="110"
+        font-weight="300"
+        fill="#ece9f5"
+        letter-spacing="-3">One hundred</text>
+  <text x="60" y="400"
+        font-family="'Fraunces', Georgia, serif"
+        font-size="110"
+        font-weight="300"
+        fill="#ece9f5"
+        letter-spacing="-3">trillion tokens.</text>
+  <text x="60" y="510"
+        font-family="'Fraunces', Georgia, serif"
+        font-size="110"
+        font-style="italic"
+        font-weight="300"
+        fill="url(#grad-text)"
+        letter-spacing="-3">One orbit.</text>
+
+  <!-- Footer text -->
+  <text x="60" y="580"
+        font-family="'JetBrains Mono', 'Courier New', monospace"
+        font-size="16"
+        letter-spacing="4"
+        fill="#6a6783">orbitomega.netlify.app · github.com/kongguqween1/Orbit-Omega</text>
+
+  <!-- Grain overlay -->
+  <rect width="1200" height="630" filter="url(#grain)" opacity="0.5"/>
+</svg>

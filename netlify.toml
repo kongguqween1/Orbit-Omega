@@ -1,6 +1,8 @@
 [build]
   publish = "."
 
+# Custom 404 — Netlify auto-serves /404.html on any unmatched route
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -8,6 +10,13 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Note: SRI cannot be applied to ES modules loaded via importmap.
+    # We mitigate supply-chain risk via a Content-Security-Policy that
+    # restricts script sources to self + the unpkg CDN we explicitly use.
+    # `script-src 'unsafe-inline'` is needed only for the inline importmap
+    # (a static JSON block, no executable code). Module loading itself is
+    # whitelisted to unpkg.com so untrusted scripts cannot be injected.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://unpkg.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
 
 [[headers]]
   for = "/styles/*"
@@ -16,5 +25,10 @@
 
 [[headers]]
   for = "/scripts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"

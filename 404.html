@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#02030a" />
+<meta name="robots" content="noindex" />
+<title>404 — Lost in orbit · ORBIT Ω</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2302030a'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%238b6ee8'/%3E%3C/svg%3E" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    color: #b8b4cc;
+    background: radial-gradient(ellipse at 50% 30%, #060818 0%, #02030a 70%);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 40px 24px;
+    overflow: hidden;
+    position: relative;
+  }
+  .wrap { max-width: 620px; position: relative; z-index: 2; }
+  .code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #6a6783;
+    margin: 0 0 28px;
+  }
+  h1 {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(80px, 14vw, 180px);
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+    margin: 0 0 24px;
+    color: #ece9f5;
+  }
+  h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, #8b6ee8 0%, #4fc3d4 50%, #c987d4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  p {
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: #6a6783;
+    max-width: 50ch;
+    margin: 0 auto 36px;
+    line-height: 1.55;
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.03);
+    color: #ece9f5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 220ms cubic-bezier(.2,.8,.2,1), background 220ms cubic-bezier(.2,.8,.2,1), transform 220ms cubic-bezier(.2,.8,.2,1);
+  }
+  .back:hover {
+    border-color: rgba(139,110,232,0.45);
+    background: rgba(139,110,232,0.08);
+    transform: translateY(-1px);
+  }
+  .back svg { width: 16px; height: 16px; }
+  .star {
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #b8b4cc;
+    opacity: 0.6;
+  }
+  .orb {
+    position: absolute;
+    inset: -30%;
+    background: radial-gradient(closest-side, rgba(139,110,232,0.16), transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <div class="orb" aria-hidden="true"></div>
+  <span class="star" style="top: 12%; left: 18%"></span>
+  <span class="star" style="top: 24%; left: 78%"></span>
+  <span class="star" style="top: 68%; left: 14%"></span>
+  <span class="star" style="top: 82%; left: 86%"></span>
+  <span class="star" style="top: 44%; left: 9%"></span>
+  <span class="star" style="top: 58%; left: 92%"></span>
+  <div class="wrap">
+    <p class="code">SIG LOST · 404</p>
+    <h1>Off <em>orbit.</em></h1>
+    <p>The page you're after has drifted past the event horizon, or it never existed. Either way, the galaxy is still spinning back home.</p>
+    <a href="/" class="back">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Return to ORBIT Ω
+    </a>
+  </div>
+</body>
+</html>
