@@ -1033,15 +1033,12 @@ body:not(.loading) .hero__title .line > span {
 .foot__source {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  color: var(--ink-1) !important;
-  transition: color var(--t-1) var(--ease-out);
+  gap: 6px;
 }
 .foot__source svg {
-  width: 13px; height: 13px;
+  width: 11px; height: 11px;
   flex-shrink: 0;
 }
-.foot__source:hover { color: var(--ink-0) !important; }
 
 .foot__bottom {
   max-width: var(--maxw);
