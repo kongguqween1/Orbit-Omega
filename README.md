@@ -38,23 +38,6 @@ orbit-omega/
 └─ netlify.toml
 ```
 
-## Run locally
-
-Any static server will do. From the project folder:
-
-```bash
-# Python
-python -m http.server 5173
-
-# Node
-npx serve -l 5173
-
-# PowerShell one-liner
-npx --yes http-server . -p 5173
-```
-
-Then open <http://localhost:5173>.
-
 ## Performance notes
 
 - Pixel ratio is clamped to `1.75` to keep mid-tier laptops at 60fps
