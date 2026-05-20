@@ -48,11 +48,6 @@ orbit-omega/
   and slow boot; a `pointer: coarse` branch hides the custom cursor
   and switches to OS cursor for touch.
 
-## Deploy
-
-Drop the folder on Netlify, Vercel, GitHub Pages, Cloudflare Pages —
-no build step required. A `netlify.toml` is provided for one-click.
-
 ## License
 
 For demonstration purposes. The "100T Token Genesis" is a fictional
